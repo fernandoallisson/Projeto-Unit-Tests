@@ -10,9 +10,23 @@
     - average([1, 1]) // Retorno: 1;
     - average([1, '2']) // Retorno: undefined;
 */
+const verificaArrayVazio = (array) => array.length === 0;
+const verificaArrayNumeros = (array) => array.every((element) => typeof element === 'number');
 
-const average = () => {
-  // adicione seu código aqui 
+const mediaDosNumeros = (array) => {
+  let soma = 0;
+  array.forEach((element) => {
+    soma += element;
+  });
+  let media = soma / array.length;
+  return Math.round(media);
 };
+
+const average = (array) => {
+  if (verificaArrayVazio(array) || !verificaArrayNumeros(array)) {
+    return undefined;
+  } return mediaDosNumeros(array);
+};
+console.log(average([1, 2, 3, 4, 1]));
 
 module.exports = average;
