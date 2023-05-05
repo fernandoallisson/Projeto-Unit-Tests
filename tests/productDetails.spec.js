@@ -30,6 +30,8 @@ const productDetails = require('../src/productDetails');
 */
 
 describe('6 - Implemente os casos de teste para a função `productDetails`', () => {
+  const funcao = productDetails;
+  const retornoFuncao = productDetails();
 
   it('Verifica se a função `productDetails` tem o comportamento esperado', () => {
     expect(productDetails('Alcool gel', 'Máscara')).toEqual([
@@ -48,22 +50,25 @@ describe('6 - Implemente os casos de teste para a função `productDetails`', ()
     ]);
   });
   it('Teste se productDetails é uma função.', () => {
-    expect().toBe();
+    expect(typeof funcao).toEqual('function');
   });
   it('Teste se o retorno da função é um array', () => {
-    expect().toBe();
+    expect(Array.isArray(retornoFuncao)).toBe(true);
   });
   it('Teste se o array retornado pela função contém dois itens dentro', () => {
-    expect().toBe();
+    expect(retornoFuncao.length).toEqual(2);
   });
   it('Teste se os dois itens dentro do array retornado pela função são objetos', () => {
-    expect().toBe();
+    expect(typeof retornoFuncao[0]).toBe('object');
+    expect(typeof retornoFuncao[1]).toBe('object');
   });
   it('Teste se quando passado parâmetros diferentes entre si, os dois objetos também são diferentes entre si.', () => {
-    expect().toBe();
+    expect(productDetails('amor', 'amiga')[0] !== productDetails('amor', 'amiga')[1]).toEqual(true);
   });
   it('Teste se os dois productIds terminam com 123.', () => {
-    expect().toBe();
+    const ret1 = Object.values(retornoFuncao[0].details.productId).slice(-3).join('').toLowerCase();
+    const ret2 = Object.values(retornoFuncao[1].details.productId).slice(-3).join('').toLowerCase();
+    expect(ret1 === ret2).toEqual(true);
   });
 
 });
