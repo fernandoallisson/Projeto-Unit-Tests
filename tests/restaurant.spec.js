@@ -13,6 +13,11 @@ describe('10 - Implemente a função `createMenu`, bem como seus casos de teste'
   });
   it('Verifica se o objeto retornado pela função createMenu({ food: {}, drinks: {} }).fetchMenu() retorna um objeto cujas chaves são somente food e drinks', () => {
     const oQueTenho = createMenu({ food: {}, drinks: {} }).fetchMenu();
+    const keysEsperadas = { food: {}, drinks: {} };
+    expect(oQueTenho.keys(menu)).toEqual('keysEsperadas');
+  });
+  it('Verifica se o objeto retornado pela função createMenu({ food: {}, drinks: {} }).fetchMenu() retorna um objeto cujas chaves são somente food e drinks', () => {
+    const oQueTenho = createMenu({ food: {}, drinks: {} }).fetchMenu();
     const keysEsperadas = ['food', 'drinks'];
     expect(oQueTenho.keys(menu)).toEqual('keysEsperadas');
   });
